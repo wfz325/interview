@@ -1,0 +1,18 @@
+1. proxy_url 中ProxyURLExtractor::Extract函数的时间复杂度O（n），要生成token对象空间复杂度O(n)。
+
+
+
+2. vector中动态分配的数组在析构函数中释放，不会造成内存泄露。
+
+vector中加入了capacity表示所分配空间大小。
+
+push_back()，当还有足够可用空间时复杂度O(1),没有可用空间则为O(n)。resize（）相似。
+
+赋值操作符采用深拷贝，时间复杂度O(n)。
+
+
+
+
+3. INIParser中Parse（）重用了proxy_url中的Token代码，时间复杂度O(n)，空间复杂度O(n)。
+
+键值对采用map存储，Get()函数时间复杂度O(nlogn)，空间复杂度O(n)。
